@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Swingies</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<div class = "middle-form"> 
+    <form id=form class="middle-form">
+        <h1 class="text">Swingies get the rope</h1>
+        <p class="text">Calculate how much of a price drop you would need to swing your shitcoin</p>
+
+        <p class="text">Enter the taxes in the boxes below in percent</p>
+        <label><input type="text" id="buy-tax" placeholder="buy tax"></label>
+        <label><input type="text" id="sell-tax" placeholder="sell tax"></label>
+        <label><input type="text" id="current-price" placeholder="current price (optional)"></label>
+
+        <button onclick=" getAnswer()" type="submit">Calculate</button>
+
+
+
+        <h1 class="text" id="drop"></h1>
+        <h1 class="text" id="price"></h1>
+
+        <br>        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+
+
+
+        <div class="text" id="priceneeded"></div>
+        <div class="text" id="answer"></div>
+        <p class = "text">Helpful? Send me some shitcoins! 0x3149138A6316c9e2AD60567e237dfbC7d647714F</p>
+
+    </form>
+</div>
+
+    <script>
+
+        function getAnswer() {
+            let inputArr = [];
+            let swingieAmount;
+            inputArr[0] = document.getElementById('sell-tax').value;
+            inputArr[1] = document.getElementById('buy-tax').value;
+            inputArr[2] = document.getElementById('current-price').value;
+
+            priceneeded.textContent = "The price you would need to succesfully swing is below $" +
+                (inputArr[2] * (100 - inputArr[0]) * (100 - inputArr[1])) * 0.0001;
+            answer.textContent = "You need a " + (10000 - (100 - inputArr[0]) * (100 - inputArr[1])) * 0.01 + "% drop";
+
+            price.textContent = "$"+(inputArr[2] * (100 - inputArr[0]) * (100 - inputArr[1])) * 0.0001;
+            drop.textContent =  (10000 - (100 - inputArr[0]) * (100 - inputArr[1])) * 0.01 + "%";
+            event.preventDefault();
+        }
+
+
+    </script>
+
+</body>
+
+</html>
